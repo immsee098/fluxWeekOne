@@ -11,12 +11,13 @@ public class Test04 {
     @Test
     public void testFour() {
 //        아래와 같은 객체가 전달될 때 “JOHN”, “JACK”등이 대문자로 변환되어 출력되는 로직 검증
-//        Person(“John”, “[john@gmail.com](mailto:john@gmail.com)”, “12345678”)
-//        Person(“Jack”, “[jack@gmail.com](mailto:jack@gmail.com)”, “12345678”)
+//        Person(“john”, “[john@gmail.com](mailto:john@gmail.com)”, “12345678”)
+//        Person(“jack”, “[jack@gmail.com](mailto:jack@gmail.com)”, “12345678”)
 //
 
         Person p1 = new Person("john", "[john@gmail.com](mailto:john@gmail.com)", "12345678");
-        Flux<Person> flx = Flux.just(p1)
+        Person p2 = new Person("john", "[john@gmail.com](mailto:john@gmail.com)", "12345678");
+        Flux<Person> flx = Flux.just(p1, p2)
                 .doOnNext(i -> {
                     String name = i.getName();
                     String bigName = name.toUpperCase();
