@@ -15,6 +15,7 @@ public class Test01 {
         Flux name = Flux.concat(names1, names2).log();
 
         StepVerifier.create(name)
+                .expectSubscription()
                 .expectNext("Blenders", "Old", "Johnnie", "Pride", "Monk", "Walker")
                 .verifyComplete();
 

@@ -21,9 +21,8 @@ public class Test02 {
         StepVerifier.create(fl)
                 .thenConsumeWhile(g -> {
                     if(g%2 == 0) {
-                        System.out.println(g);
                         return true;
-                    }else {return false;}
+                    } else {return false;}
                 }).verifyComplete();
 
 
